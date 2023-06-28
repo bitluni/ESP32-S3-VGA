@@ -8,7 +8,9 @@ Check out the video for this project https://youtu.be/muuhgrige5Q
 Please support the development:
 
 Paypal: https://paypal.me/bitluni
+
 Github Sponsors: https://github.com/sponsors/bitluni
+
 Patreon: https://www.patreon.com/bitluni
 
 ...or by sharing and attributing :-*
