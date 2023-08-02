@@ -204,7 +204,7 @@ bool vgaInit(const PinConfig &pinConfig, const VGAMode &vgaMode, int bits = 8, b
     LCD_CAM.lcd_ctrl.lcd_vt_height = vgaMode.totalVertical() - 1;		//10 bit
 
 	LCD_CAM.lcd_ctrl2.lcd_hs_blank_en = 1;
-	HAL_FORCE_MODIFY_U32_REG_FIELD(LCD_CAM.lcd_ctrl2, lcd_hsync_position, 0);//vgaMode.hFront);
+	HAL_FORCE_MODIFY_U32_REG_FIELD(LCD_CAM.lcd_ctrl2, lcd_hsync_position, vgaMode.hFront);
 
 	LCD_CAM.lcd_misc.lcd_next_frame_en = 1; //?? limitation
 
