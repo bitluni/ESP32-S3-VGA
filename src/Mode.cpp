@@ -1,4 +1,4 @@
-#include "VGAMode.h"
+#include "Mode.h"
 
 const Mode Mode::MODE_640x400x70(16, 96, 48, 640, 12, 2, 35, 400, 25175000);
 const Mode Mode::MODE_320x200x70(8, 48, 24, 320, 12, 2, 35, 200, 12587500, 0, 0, 2);

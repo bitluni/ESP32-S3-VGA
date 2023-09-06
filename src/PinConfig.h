@@ -5,14 +5,16 @@ class PinConfig;
 class PinConfig
 {
 	public:
-		const static PinConfig VGAPurple;
+		static const PinConfig VGAPurple;
 	public:
 		int r[5];
 		int g[6];
 		int b[5];
 		int hSync, vSync;
 
-	VGAPinConfig(
+	PinConfig() {};
+
+	PinConfig(
 		int r0, int r1, int r2, int r3, int r4, 
 		int g0, int g1, int g2, int g3, int g4, int g5, 
 		int b0, int b1, int b2, int b3, int b4,

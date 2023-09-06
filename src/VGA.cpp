@@ -10,7 +10,7 @@ VGA::~VGA()
 	bits = 0;
 }
 
-bool VGA::init(PinConfig pins, Mode mode, int bits)
+bool VGA::init(const PinConfig pins, const Mode mode, int bits)
 {
 	this->mode = mode;
 	this->bits = bits;
@@ -33,6 +33,14 @@ void VGA::dot(int x, int y, int r, int g, int b)
 }
 
 void VGA::dot(int x, int y, int rgb)
+{
+}
+
+void VGA::dotdit(int x, int y, int r, int g, int b)
+{
+}
+
+void VGA::dotdit(int x, int y, int rgb)
 {
 }
 

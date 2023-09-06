@@ -13,22 +13,22 @@ void setup()
 	//VGAMode mode = MODE_1024x768x60;
 	//if(!vgaInit(pins, mode, 8)) while(1) delay(1);
 
-	VGAMode mode = MODE_800x600x60;
-	if(!vgaInit(pins, mode, 16)) while(1) delay(1);
+	Mode mode = Mode::MODE_800x600x60;
+	if(!vga.init(pins, mode, 16)) while(1) delay(1);
 
 
 	for(int y = 0; y < mode.vRes; y++)
 		for(int x = 0; x < mode.hRes; x++)
-			vgaDotDit(x, y, x, y, 255-x);
+			vga.dotdit(x, y, x, y, 255-x);
 	for(int y = 0; y < 30; y++)
 		for(int x = 0; x < 256; x++)
 		{
-			vgaDot(x, y, x, 0, 0);
-			vgaDot(x, y + 30, 0, x, 0);
-			vgaDot(x, y + 60, 0, 0, x);
+			vga.dot(x, y, x, 0, 0);
+			vga.dot(x, y + 30, 0, x, 0);
+			vga.dot(x, y + 60, 0, 0, x);
 		}
-	vgaShow();
-	vgaStart();
+	vga.show();
+	vga.start();
 }
 
 void loop() 

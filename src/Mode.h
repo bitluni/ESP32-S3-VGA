@@ -1,39 +1,19 @@
-#ifndef 
-
-MODE_H
-#define 
-
-MODE_H
+#ifndef MODE_H
+#define MODE_H
+#include <stdint.h>
 
 class Mode;
-
 class Mode
 {
 	public:
-	static const 
-	
-	Mode MODE_640x400x70;
-	static const 
-	
-	Mode MODE_320x200x70;
-	static const 
-	
-	Mode MODE_640x480x60;
-	static const 
-	
-	Mode MODE_800x600x56;
-	static const 
-	
-	Mode MODE_800x600x60;
-	static const 
-	
-	Mode MODE_1024x768x43;
-	static const 
-	
-	Mode MODE_1024x768x60;
-	static const 
-	
-	Mode MODE_1280x720x60;
+	static const Mode MODE_640x400x70;
+	static const Mode MODE_320x200x70;
+	static const Mode MODE_640x480x60;
+	static const Mode MODE_800x600x56;
+	static const Mode MODE_800x600x60;
+	static const Mode MODE_1024x768x43;
+	static const Mode MODE_1024x768x60;
+	static const Mode MODE_1280x720x60;
 
 	public:
 	uint32_t hFront, hSync, hBack, hRes, hPol;
@@ -105,6 +85,4 @@ class Mode
 	}
 };
 
-#endif 
-
-MODE_h
+#endif //MODE_h
