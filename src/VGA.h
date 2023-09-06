@@ -3,6 +3,7 @@
 
 #include "PinConfig.h"
 #include "Mode.h"
+#include "DMAVideoBuffer.h"
 
 class VGA
 {
@@ -11,6 +12,10 @@ class VGA
 	int bufferCount;
 	int bits;
 	PinConfig pins;
+	int backBuffer;
+	DMAVideoBuffer *dmaBuffer;
+	bool usePsram;
+	int dmaChannel;
 	
 	public:
 	VGA();
@@ -18,11 +23,12 @@ class VGA
 	bool init(const PinConfig pins, const Mode mode, int bits);
 	bool start();
 	bool show();
-	void dot(int x, int y, int r, int g, int b);
+	void dot(int x, int y, uint8_t r, uint8_t g, uint8_t b);
 	void dot(int x, int y, int rgb);
-	void dotdit(int x, int y, int r, int g, int b);
-	void dotdit(int x, int y, int rgb);
-	int rgb(int r, int g, int b);
+	void dotdit(int x, int y, uint8_t r, uint8_t g, uint8_t b);
+	int rgb(uint8_t r, uint8_t g, uint8_t b);
+	protected:
+	void attachPinToSignal(int pin, int signal);
 };
 
 #endif //VGA_h

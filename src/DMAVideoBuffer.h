@@ -1,5 +1,10 @@
 
 #include <hal/dma_types.h>
+#include "spiram.h"
+#include <rom/cache.h>
+#include <esp_heap_caps.h>
+
+extern int Cache_WriteBack_Addr(uint32_t addr, uint32_t size);
 
 class DMAVideoBuffer
 {
