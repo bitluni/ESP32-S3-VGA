@@ -1,12 +1,13 @@
 # ESP32 S3 VGA
 
-This is a first base code with an example. A proper library will follow.
+Basic example is in luniVGA. 
+The whole repo is also a library for Arduino. An Adafruit GFX library wrapper is in examples GfxWrapper. More follows. Higher resolution lose sync on PSRAM.
 
 Check out the video for this project https://youtu.be/muuhgrige5Q
 
-Only compatible with 8MB psram version ESP32 S3 for high resolutions. Lower resolutions can fit in SRAM. Set vgaInit parameter "usePsram" to false.
+Only compatible with 8MB psram version ESP32 S3 for high resolutions. 
 
-16 bit test should look like this:
+test image:
 ![Test image](testImage.jpg)
 
 # Support
