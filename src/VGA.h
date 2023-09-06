@@ -23,6 +23,7 @@ class VGA
 	bool init(const PinConfig pins, const Mode mode, int bits);
 	bool start();
 	bool show();
+	void clear(int rgb = 0);
 	void dot(int x, int y, uint8_t r, uint8_t g, uint8_t b);
 	void dot(int x, int y, int rgb);
 	void dotdit(int x, int y, uint8_t r, uint8_t g, uint8_t b);

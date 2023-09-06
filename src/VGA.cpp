@@ -245,3 +245,10 @@ int VGA::rgb(uint8_t r, uint8_t g, uint8_t b)
 		return (r >> 3) | ((g >> 2) << 5) | ((b >> 3) << 11);
 
 }
+
+void VGA::clear(int rgb)
+{
+	for(int y = 0; y < mode.vRes; y++)
+		for(int x = 0; x < mode.hRes; x++)
+			dot(x, y, rgb);
+}
