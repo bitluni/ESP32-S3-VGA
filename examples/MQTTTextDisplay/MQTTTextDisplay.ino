@@ -23,7 +23,7 @@ GfxWrapper<VGA> gfx(vga, mode.hRes, mode.vRes);
 
 const char* WLAN_SSID = "YOUR_SSID";
 const char* WLAN_PASS = "YOUR_PASSWORD";
-const char* MQTT_BROKER = "YOUR_BROKER";
+const char* MQTT_BROKER = "YOUR_BROKER"; //ip or domain
 const int MQTT_PORT = 1883;
 const char* MQTT_USER = "";
 const char* MQTT_PWD = "";
