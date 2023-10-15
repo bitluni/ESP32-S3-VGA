@@ -198,7 +198,7 @@ bool vgaInit(const PinConfig &pinConfig, const VGAMode &vgaMode, int bits = 8, b
 	LCD_CAM.lcd_ctrl2.lcd_hsync_width = vgaMode.hSync - 1;				//7 bit
     LCD_CAM.lcd_ctrl.lcd_hb_front = vgaMode.blankHorizontal() - 1;		//11 bit
     LCD_CAM.lcd_ctrl1.lcd_ha_width = vgaMode.hRes - 1;					//12 bit
-    LCD_CAM.lcd_ctrl1.lcd_ht_width = vgaMode.totalHorizontal();			//12 bit
+    LCD_CAM.lcd_ctrl1.lcd_ht_width = vgaMode.totalHorizontal() - 1;			//12 bit
 
 	LCD_CAM.lcd_ctrl2.lcd_vsync_width = vgaMode.vSync - 1;				//7bit
     HAL_FORCE_MODIFY_U32_REG_FIELD(LCD_CAM.lcd_ctrl1, lcd_vb_front, vgaMode.vSync + vgaMode.vBack - 1);		//8bit
@@ -206,7 +206,7 @@ bool vgaInit(const PinConfig &pinConfig, const VGAMode &vgaMode, int bits = 8, b
     LCD_CAM.lcd_ctrl.lcd_vt_height = vgaMode.totalVertical() - 1;		//10 bit
 
 	LCD_CAM.lcd_ctrl2.lcd_hs_blank_en = 1;
-	HAL_FORCE_MODIFY_U32_REG_FIELD(LCD_CAM.lcd_ctrl2, lcd_hsync_position, 0);//vgaMode.hFront);
+	HAL_FORCE_MODIFY_U32_REG_FIELD(LCD_CAM.lcd_ctrl2, lcd_hsync_position, vgaMode.hFront - 1);
 
 	LCD_CAM.lcd_misc.lcd_next_frame_en = 1; //?? limitation
 
