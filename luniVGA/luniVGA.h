@@ -160,16 +160,18 @@ bool vgaInit(const PinConfig &pinConfig, const VGAMode &vgaMode, int bits = 8, b
 	LCD_CAM.lcd_user.lcd_reset = 1;
 	esp_rom_delay_us(100);
 
-	
-	//f=240000000/(n+1)
-	//n=240000000/f-1;
-	int N = round(240000000.0/(double)vgaMode.frequency) - 1;
+
+	// f=240000000/n
+	// n=240000000/f;
+	int N = round(240000000.0/(double)vgaMode.frequency);
 	if(N < 2) N = 2;
-	//clk = source / (N + b/a)
+	// clk = source / (N + b/a) --integer--> clk = source / N
 	LCD_CAM.lcd_clock.clk_en = 1;
 	LCD_CAM.lcd_clock.lcd_clk_sel = 2;			// PLL240M
-	LCD_CAM.lcd_clock.lcd_clkm_div_a = 1;
-	LCD_CAM.lcd_clock.lcd_clkm_div_b = 1;
+	// - For integer divider, LCD_CAM_LCD_CLKM_DIV_A and LCD_CAM_LCD_CLKM_DIV_B are cleared.
+	// - For fractional divider, the value of LCD_CAM_LCD_CLKM_DIV_B should be less than the value of LCD_CAM_LCD_CLKM_DIV_A.
+	LCD_CAM.lcd_clock.lcd_clkm_div_a = 0;
+	LCD_CAM.lcd_clock.lcd_clkm_div_b = 0;
 	LCD_CAM.lcd_clock.lcd_clkm_div_num = N; 	// 0 => 256; 1 => 2; 14 compfy
 	LCD_CAM.lcd_clock.lcd_ck_out_edge = 0;		
 	LCD_CAM.lcd_clock.lcd_ck_idle_edge = 0;
